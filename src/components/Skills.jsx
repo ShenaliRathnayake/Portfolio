@@ -1,247 +1,222 @@
 import { motion } from "framer-motion";
-import ThreeScene from "./ThreeScene";
 import {
   FaReact,
   FaJs,
   FaLaravel,
   FaPython,
-  FaDatabase
+  FaNodeJs,
+  FaGitAlt,
 } from "react-icons/fa";
 
 import {
+  SiNextdotjs,
   SiTailwindcss,
-  SiTensorflow,
-  SiOpencv
+  SiMysql,
+  SiOpencv,
 } from "react-icons/si";
 
-
 function Skills() {
-
-
-  const skills = [
-
+  const skillGroups = [
     {
-      name: "React.js",
-      level: "95%",
-      icon: <FaReact />
+      title: "Frontend",
+      description: "Building modern and responsive user interfaces.",
+      skills: [
+        {
+          name: "React.js",
+          icon: <FaReact />,
+          color: "text-cyan-400",
+        },
+        {
+          name: "Next.js",
+          icon: <SiNextdotjs />,
+          color: "text-white",
+        },
+        {
+          name: "JavaScript",
+          icon: <FaJs />,
+          color: "text-yellow-400",
+        },
+        {
+          name: "Tailwind CSS",
+          icon: <SiTailwindcss />,
+          color: "text-cyan-300",
+        },
+      ],
     },
 
-
     {
-      name: "JavaScript",
-      level: "90%",
-      icon: <FaJs />
+      title: "Backend",
+      description: "Developing APIs, server-side applications and databases.",
+      skills: [
+        {
+          name: "Laravel",
+          icon: <FaLaravel />,
+          color: "text-red-400",
+        },
+        {
+          name: "MySQL",
+          icon: <SiMysql />,
+          color: "text-blue-400",
+        },
+        {
+          name: "Node.js",
+          icon: <FaNodeJs />,
+          color: "text-green-400",
+        },
+      ],
     },
 
-
     {
-      name: "Laravel",
-      level: "85%",
-      icon: <FaLaravel />
+      title: "AI & Tools",
+      description: "Exploring intelligent applications and development tools.",
+      skills: [
+        {
+          name: "Python",
+          icon: <FaPython />,
+          color: "text-yellow-300",
+        },
+        {
+          name: "OpenCV",
+          icon: <SiOpencv />,
+          color: "text-green-400",
+        },
+        {
+          name: "Git",
+          icon: <FaGitAlt />,
+          color: "text-orange-400",
+        },
+      ],
     },
-
-
-    {
-      name: "Python",
-      level: "90%",
-      icon: <FaPython />
-    },
-
-
-    {
-      name: "Tailwind CSS",
-      level: "90%",
-      icon: <SiTailwindcss />
-    },
-
-
-    {
-      name: "AI / Computer Vision",
-      level: "85%",
-      icon: <SiTensorflow />
-    },
-
-
-    {
-      name: "OpenCV",
-      level: "85%",
-      icon: <SiOpencv />
-    },
-
-
-    {
-      name: "Database",
-      level: "80%",
-      icon: <FaDatabase />
-    }
-
   ];
 
-
-
-
-
   return (
+    <section
+      id="skills"
+      className="min-h-screen px-6 py-24 relative overflow-hidden"
+    >
+      {/* Background Glows */}
+      <div className="absolute w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] top-20 left-0 pointer-events-none" />
 
-    <section id="skills" className="min-h-screen px-6 py-24">
+      <div className="absolute w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] bottom-20 right-0 pointer-events-none" />
 
+      <div className="max-w-6xl mx-auto relative z-10">
 
-      <div className="max-w-6xl mx-auto">
-
-
-
-        <motion.h2
-
-          initial={{
-            opacity: 0,
-            y: 50
-          }}
-
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-
-          className="text-center text-5xl font-bold mb-16 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
-
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
+          <h2
+            className="
+              text-5xl
+              md:text-6xl
+              font-bold
+              bg-gradient-to-r
+              from-cyan-400
+              via-purple-400
+              to-pink-500
+              bg-clip-text
+              text-transparent
+            "
+          >
+            Skills
+          </h2>
 
-          Skills
+          <p className="text-gray-400 mt-5 max-w-2xl mx-auto text-lg">
+            Technologies and tools I use to design, build and develop
+            modern software applications.
+          </p>
+        </motion.div>
 
-        </motion.h2>
+        {/* Skill Groups */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {skillGroups.map((group, groupIndex) => (
+            <motion.div
+              key={group.title}
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: groupIndex * 0.15,
+              }}
+              viewport={{ once: true }}
+              whileHover={{
+                y: -6,
+              }}
+              className="
+                p-7
+                rounded-3xl
+                bg-white/5
+                backdrop-blur-xl
+                border
+                border-white/10
+                hover:border-cyan-400/30
+                transition-all
+                duration-300
+              "
+            >
+              {/* Group Header */}
+              <div className="mb-7">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {group.title}
+                </h3>
 
-
-
-
-
-        <div className="grid md:grid-cols-2 gap-8">
-
-
-
-          {
-            skills.map((skill, index) => (
-
-
-              <motion.div
-
-                key={index}
-
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -50 : 50
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  x: 0
-                }}
-
-                transition={{
-                  duration: 0.5
-                }}
-
-                whileHover={{
-                  scale: 1.05
-                }}
-
-                className="p-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20"
-
-              >
-
-
-
-
-                <div className="flex items-center gap-4 mb-5 text-2xl">
-
-
-                  <span className="text-cyan-400">
-
-                    {skill.icon}
-
-                  </span>
-
-
-
-                  <h3>
-
-                    {skill.name}
-
-                  </h3>
-
-
-
-                </div>
-
-
-
-
-
-
-                <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-
-
-
-                  <motion.div
-
-                    initial={{
-                      width: 0
-                    }}
-
-                    whileInView={{
-                      width: skill.level
-                    }}
-
-                    transition={{
-                      duration: 1
-                    }}
-
-                    className="h-full bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"
-
-                  >
-
-
-                  </motion.div>
-
-
-
-                </div>
-
-
-
-
-
-
-                <p className="text-right mt-2 text-gray-400">
-
-                  {skill.level}
-
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {group.description}
                 </p>
+              </div>
 
+              {/* Skills */}
+              <div className="flex flex-wrap gap-3">
+                {group.skills.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{
+                      y: -3,
+                      scale: 1.03,
+                    }}
+                    className="
+                      flex
+                      items-center
+                      gap-2.5
+                      px-4
+                      py-3
+                      rounded-xl
+                      bg-white/5
+                      border
+                      border-white/10
+                      hover:bg-white/10
+                      hover:border-white/20
+                      transition-all
+                      duration-300
+                    "
+                  >
+                    <span className={`text-xl ${skill.color}`}>
+                      {skill.icon}
+                    </span>
 
-
-
-
-              </motion.div>
-
-
-            ))
-
-          }
-
-
-
+                    <span className="text-sm font-medium text-gray-200">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-
       </div>
-
-
     </section>
-
-
   );
-
 }
-
 
 export default Skills;

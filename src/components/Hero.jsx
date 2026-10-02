@@ -7,8 +7,8 @@ import ThreeScene from "./ThreeScene";
 function Hero() {
   return (
     <section
-        id="home"
-        className="
+      id="home"
+      className="
         min-h-screen
         flex
         items-center
@@ -17,19 +17,16 @@ function Hero() {
         overflow-hidden
         px-6
         pt-28 md:pt-20
-        "
-        >
+      "
+    >
       {/* 3D Background */}
-
       <ThreeScene />
 
       {/* Background Glow */}
-
-      <div className="absolute w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] top-20 left-20" />
-      <div className="absolute w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px] bottom-20 right-20" />
+      <div className="absolute w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[120px] top-20 left-20" />
+      <div className="absolute w-[500px] h-[500px] bg-purple-500/15 rounded-full blur-[120px] bottom-20 right-20" />
 
       {/* Main Content */}
-
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
@@ -45,17 +42,18 @@ function Hero() {
           z-10
         "
       >
-        {/* Left Side - Profile */}
-
+        {/* =================================
+            LEFT SIDE - PROFILE
+        ================================== */}
         <div className="flex justify-center relative">
-          {/* Tech Orbit */}
 
+          {/* Tech Orbit */}
           <motion.div
             animate={{ rotate: 360 }}
             transition={{
-              duration: 20,
+              duration: 45,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
             className="
               absolute
@@ -65,97 +63,108 @@ function Hero() {
               md:block
             "
           >
-            <span className="
-              absolute
-              top-0
-              left-1/2
-              -translate-x-1/2
-              px-3
-              py-1
-              rounded-full
-              bg-white/10
-              border
-              border-cyan-400/30
-              text-cyan-300
-              text-xs
-              backdrop-blur-lg
-            ">
+            {/* React */}
+            <span
+              className="
+                absolute
+                top-0
+                left-1/2
+                -translate-x-1/2
+                px-3
+                py-1
+                rounded-full
+                bg-white/5
+                border
+                border-cyan-400/20
+                text-cyan-300/80
+                text-xs
+                backdrop-blur-lg
+              "
+            >
               React
             </span>
 
-            <span className="
-              absolute
-              top-1/2
-              -left-6
-              -translate-y-1/2
-              px-3
-              py-1
-              rounded-full
-              bg-white/10
-              border
-              border-purple-400/30
-              text-purple-300
-              text-xs
-              backdrop-blur-lg
-            ">
+            {/* Laravel */}
+            <span
+              className="
+                absolute
+                top-1/2
+                -left-6
+                -translate-y-1/2
+                px-3
+                py-1
+                rounded-full
+                bg-white/5
+                border
+                border-purple-400/20
+                text-purple-300/80
+                text-xs
+                backdrop-blur-lg
+              "
+            >
               Laravel
             </span>
 
-            <span className="
-              absolute
-              top-1/2
-              -right-6
-              -translate-y-1/2
-              px-3
-              py-1
-              rounded-full
-              bg-white/10
-              border
-              border-pink-400/30
-              text-pink-300
-              text-xs
-              backdrop-blur-lg
-            ">
+            {/* Python */}
+            <span
+              className="
+                absolute
+                top-1/2
+                -right-6
+                -translate-y-1/2
+                px-3
+                py-1
+                rounded-full
+                bg-white/5
+                border
+                border-pink-400/20
+                text-pink-300/80
+                text-xs
+                backdrop-blur-lg
+              "
+            >
               Python
             </span>
 
-            <span className="
-              absolute
-              bottom-0
-              left-1/2
-              -translate-x-1/2
-              px-3
-              py-1
-              rounded-full
-              bg-white/10
-              border
-              border-green-400/30
-              text-green-300
-              text-xs
-              backdrop-blur-lg
-            ">
+            {/* AI / CV */}
+            <span
+              className="
+                absolute
+                bottom-0
+                left-1/2
+                -translate-x-1/2
+                px-3
+                py-1
+                rounded-full
+                bg-white/5
+                border
+                border-green-400/20
+                text-green-300/80
+                text-xs
+                backdrop-blur-lg
+              "
+            >
               AI / CV
             </span>
           </motion.div>
 
           {/* Profile Image */}
-
           <motion.img
             src={profile}
             initial={{ scale: 0, rotate: 20 }}
             animate={{
               scale: 1,
               rotate: 0,
-              y: [0, -20, 0]
+              y: [0, -15, 0],
             }}
             transition={{
               scale: { duration: 1 },
               rotate: { duration: 1 },
               y: {
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
-                ease: "easeInOut"
-              }
+                ease: "easeInOut",
+              },
             }}
             className="
               w-72
@@ -163,8 +172,8 @@ function Hero() {
               object-cover
               rounded-full
               border-4
-              border-cyan-400/30
-              shadow-[0_0_100px_rgba(0,255,255,0.35)]
+              border-cyan-400/25
+              shadow-[0_0_70px_rgba(0,255,255,0.20)]
               hover:scale-105
               transition
               duration-500
@@ -175,78 +184,92 @@ function Hero() {
           />
         </div>
 
-        {/* Right Side - Content */}
-
+        {/* =================================
+            RIGHT SIDE - CONTENT
+        ================================== */}
         <div>
+
           {/* Internship Badge */}
-
-          <div className="
-            inline-flex
-            items-center
-            gap-2
-            px-4
-            py-2
-            mb-8
-            rounded-full
-            bg-green-500/10
-            border
-            border-green-500/30
-            text-green-400
-            text-sm
-            font-medium
-          ">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <motion.div
+            whileHover={{ y: -2 }}
+            className="
+              inline-flex
+              items-center
+              gap-2
+              px-4
+              py-2
+              mb-8
+              rounded-full
+              bg-green-500/5
+              border
+              border-green-500/25
+              text-green-400
+              text-sm
+              font-medium
+              transition
+            "
+          >
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             Available for Internships
-          </div>
+          </motion.div>
 
-          <p className="text-cyan-400 text-xl mb-4">
+          {/* Greeting */}
+          <p className="text-cyan-400 text-xl mb-2">
             Hello, I'm
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Shenali 
-          </h1>
           </p>
 
+          {/* Name */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Shenali
+          </h1>
 
-          <h2 className="
-            text-3xl
-            md:text-5xl
-            font-bold
-            bg-gradient-to-r
-            from-cyan-400
-            via-purple-400
-            to-pink-500
-            bg-clip-text
-            text-transparent
-            mb-6
-          ">
+          {/* Professional Title */}
+          <h2
+            className="
+              text-3xl
+              md:text-5xl
+              font-bold
+              bg-gradient-to-r
+              from-cyan-400
+              via-purple-400
+              to-pink-500
+              bg-clip-text
+              text-transparent
+              mb-6
+            "
+          >
             <Typewriter
-              words={[
-                "Software Engineer",
-                "Frontend Developer",
-                "React Developer",
-                "Creative Problem Solver"
-              ]}
-              loop={true}
+              words={["Frontend Developer"]}
+              loop={false}
               cursor
               cursorStyle="|"
-              typeSpeed={80}
-              deleteSpeed={50}
-              delaySpeed={1500}
+              typeSpeed={120}
+              deleteSpeed={0}
+              delaySpeed={1000}
             />
           </h2>
 
+          {/* Description */}
           <p className="text-gray-400 max-w-2xl text-lg leading-relaxed mb-8">
             I create modern, scalable and interactive web applications
             using React, Laravel, and emerging technologies.
           </p>
 
-          {/* Tech Badges */}
-
+          {/* =================================
+              TECHNOLOGY BADGES
+          ================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-wrap justify-center md:justify-start gap-3 mb-8"
+            className="
+              flex
+              flex-wrap
+              justify-center
+              md:justify-start
+              gap-3
+              mb-8
+            "
           >
             {[
               "React.js",
@@ -254,27 +277,25 @@ function Hero() {
               "JavaScript",
               "Tailwind CSS",
               "OpenCV",
-              "TensorFlow"
-            ].map((tech, index) => (
+              "TensorFlow",
+            ].map((tech) => (
               <motion.span
                 key={tech}
-                animate={{ y: [0, -6, 0] }}
-                transition={{
-                  duration: 2 + index * 0.2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                whileHover={{
+                  y: -3,
+                  scale: 1.03,
                 }}
                 className="
                   px-4
                   py-2
                   rounded-full
-                  bg-white/10
+                  bg-white/5
                   backdrop-blur-lg
                   border
-                  border-white/20
+                  border-white/15
                   text-sm
                   text-cyan-300
-                  shadow-[0_0_20px_rgba(0,255,255,0.12)]
+                  transition
                 "
               >
                 {tech}
@@ -282,18 +303,29 @@ function Hero() {
             ))}
           </motion.div>
 
-          {/* Buttons */}
-
+          {/* =================================
+              BUTTONS
+          ================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="flex justify-center md:justify-start gap-5 flex-wrap"
+            className="
+              flex
+              justify-center
+              md:justify-start
+              gap-5
+              flex-wrap
+            "
           >
+            {/* View Projects */}
             <motion.a
               href="#projects"
-              whileHover={{ scale: 1.08, y: -4 }}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{
+                scale: 1.04,
+                y: -3,
+              }}
+              whileTap={{ scale: 0.97 }}
               className="
                 px-8
                 py-4
@@ -306,7 +338,7 @@ function Hero() {
                 items-center
                 gap-3
                 font-semibold
-                shadow-[0_10px_40px_rgba(0,255,255,0.25)]
+                shadow-[0_10px_35px_rgba(0,255,255,0.18)]
                 transition
               "
             >
@@ -314,25 +346,28 @@ function Hero() {
               <FaArrowRight />
             </motion.a>
 
+            {/* Download CV */}
             <motion.a
-              href="/src/assets/resume.pdf"
-              download
-              whileHover={{ scale: 1.08, y: -4 }}
-              whileTap={{ scale: 0.96 }}
+              href="/resume.pdf"
+              download="Shenali-Rathnayake-CV.pdf"
+              whileHover={{
+                scale: 1.04,
+                y: -3,
+              }}
+              whileTap={{ scale: 0.97 }}
               className="
                 px-8
                 py-4
                 rounded-2xl
                 border
-                border-white/20
-                bg-white/10
+                border-white/15
+                bg-white/5
                 backdrop-blur-xl
                 flex
                 items-center
                 gap-3
                 font-semibold
-                hover:bg-white/15
-                shadow-[0_10px_30px_rgba(255,255,255,0.08)]
+                hover:bg-white/10
                 transition
               "
             >
@@ -341,8 +376,9 @@ function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Developer Stats */}
-
+          {/* =================================
+              DEVELOPER STATS
+          ================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -356,19 +392,37 @@ function Hero() {
               flex-wrap
             "
           >
+            {/* Projects */}
             <div className="text-center md:text-left">
-              <h3 className="text-3xl font-bold text-cyan-400">5+</h3>
-              <p className="text-gray-400 text-sm">Projects Built</p>
+              <h3 className="text-3xl font-bold text-cyan-400">
+                5+
+              </h3>
+
+              <p className="text-gray-400 text-sm max-w-[150px]">
+                Projects Built (Academic & Personal)
+              </p>
             </div>
 
+            {/* Technologies */}
             <div className="text-center md:text-left">
-              <h3 className="text-3xl font-bold text-purple-400">10+</h3>
-              <p className="text-gray-400 text-sm">Technologies</p>
+              <h3 className="text-3xl font-bold text-purple-400">
+                10+
+              </h3>
+
+              <p className="text-gray-400 text-sm">
+                Technologies
+              </p>
             </div>
 
+            {/* Learning */}
             <div className="text-center md:text-left">
-              <h3 className="text-3xl font-bold text-pink-400">∞</h3>
-              <p className="text-gray-400 text-sm">Learning Mindset</p>
+              <h3 className="text-3xl font-bold text-pink-400">
+                ∞
+              </h3>
+
+              <p className="text-gray-400 text-sm">
+                Learning Mindset
+              </p>
             </div>
           </motion.div>
         </div>
