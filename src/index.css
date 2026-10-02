@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body{
+ cursor:none;
+ background:#050505;
+ color:white;
+ font-family:Inter, sans-serif;
+}
+
+section{
+position:relative;
+}
+
+
+section::before{
+
+content:"";
+
+position:absolute;
+
+width:300px;
+
+height:300px;
+
+background:rgba(0,255,255,0.08);
+
+filter:blur(120px);
+
+border-radius:50%;
+
+z-index:-1;
+
+}
+
+section {
+  position: relative;
+  scroll-margin-top: 120px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,0.06), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(139,92,246,0.06), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(236,72,153,0.05), transparent 25%);
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating-shape {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: white;
+}
